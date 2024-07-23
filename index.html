@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Raj Kumar Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/77e565ffad.js" crossorigin="anonymous"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    /* About Section */
+    .about-mf .box-shadow-full {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .about-mf .about-img {
+      margin-bottom: 2rem;
+    }
+
+    .about-mf .about-img img {
+      margin-left: 10px;
+    }
+
+    /* Skills Section */
+    .skill-mf .progress {
+      margin: .5rem 0 1.2rem 0;
+      border-radius: 0;
+      height: .7rem;
+    }
+
+    .skill-mf .progress .progress-bar {
+      height: .7rem;
+      background-color: #ffbd39;
+    }
+
+    /* Animation Styles */
+    #typing-animation {
+      position: relative;
+      font-size: 30px;
+      font-weight: bold;
+      color: #fff;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 3s steps(20, end) infinite;
+    }
+
+    #typing-animation:before {
+      content: "";
+      animation: typing-cursor 0.5s ease-in-out infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes typing-cursor {
+      from { width: 5px; }
+      to { width: 0; }
+    }
+
+    /* Project Image Zoom Effect */
+    .zoom-effect {
+      overflow: hidden;
+      transition: transform 0.3s ease-out;
+    }
+
+    .zoom-effect:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	  
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Raj Kumar</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
+			  <li class="nav-item"><a href="#project-section" class="nav-link"><span>Publications & Blogs</span></a></li>
+	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	</nav>
+	<section id="home-section" class="hero">
+		<div class="home-slider  owl-carousel">
+	      <div class="slider-item ">
+	      	<div class="overlay"></div>
+	         <div class="container">
+	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/profile.jpg);">
+	          	 <div class="overlay"></div>
+	          	</div>
+		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+		          	<div class="text">
+		          		<span class="subheading">Hello!</span>
+			            <h1 class="mb-4 mt-3">I'm <span>Raj Kumar</span></h1>
+
+						<!-- Element to contain animated typing -->
+						<span id="typing-animation"></span>
+
+						<script>
+
+						// Initialize the typing animation
+						const typingAnimationElement = document.getElementById('typing-animation');
+
+						// Create an array of typing text
+						const typingTexts = [
+						'Data Analyst  ',
+						'Researcher  ',
+						'Teacher   ',
+						];
+
+						// Create a function to display the typing animation for a given text
+						function playTypingAnimation(text) {
+						// Loop through each character and add it to the element
+						for (let i = 0; i < text.length; i++) {
+							setTimeout(() => {
+							typingAnimationElement.textContent += text[i];
+							}, i * 200); // Increase the delay to slow down the typing animation
+						}
+
+						// Once the animation is complete, reset the text and start over
+						setTimeout(() => {
+							typingAnimationElement.textContent = '';
+							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+						}, text.length * 200);
+						}
+
+						// Start the typing animation loop
+						playTypingAnimation(typingTexts[0]);
+
+						</script>
+
+						<br>
+						<br>
+			            <h2>A Data Analyst</h2>
+						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 5 years of experience</h2> -->
+						<!-- <br> -->
+			            <p><a href="https://github.com/rajkumarpec" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+		            </div>
+		          </div>
+	        	</div>
+	        </div>
+	      </div>
+		</div>
+    </section>
+
+
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+    	<div class="container">
+			<div class="row">
+				<div class="row d-flex align-items-stretch">
+				<!-- <div class="row d-flex"> -->
+					<div class="col-md-6 col-lg-5 d-flex">
+						<div class="img-about img d-flex align-items-stretch">
+							<div class="overlay">
+								<div class="row">
+									<div class="col-sm-6 col-md-5">
+									  <div class="about-img">
+										<img src="images/about-me.png" class="img-fluid rounded b-shadow-a" alt="">
+									  </div>
+									</div>
+									<!-- Details next to profile image -->
+									<div class="col-sm-6 col-md-7">
+									  <div class="about-info">
+										<p><span class="title-s">Name: </span> <span>Raj Kumar</span></p>
+										<p><span class="title-s">Job Role: </span> <span>Data Analyst</span></p>
+										<p><span class="title-s">Location: </span> <span>Faridabad, India</span></p>
+										<p><span class="title-s">Experience in Data Science: </span> <span>3 Years 2 Months</span></p>
+										<p><span class="title-s">Experience in Academic &amp Research: </span> <span>11 Years</span></p>
+										
+									  </div>
+									</div>
+								  </div>
+
+								<div class="skill-mf">
+									<p class="title-s">Skills</p>
+									
+									<span>Power Bi </span> <span class="pull-right">90%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									
+									<span>Tableau</span> <span class="pull-right">80%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									
+									
+									<span>Statistical Analysis</span> <span class="pull-right">80%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>SQL</span> <span class="pull-right">80%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									
+									<span>PYTHON </span> <span class="pull-right">70%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>Machine Learning, Deep Learning &amp NLP</span> <span class="pull-right">70%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+
+									<span>AWS Sagemaker &amp MLOPs</span> <span class="pull-right">50%</span>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+						<div class="row justify-content-start pb-3">
+							<div class="col-md-12 heading-section ftco-animate">
+								
+								<h1 class="big">About</h1>
+								<h2 class="mb-4">About Me</h2>
+								
+								<p>Experienced Data Analyst with over 3 years of industry expertise and a Doctorate in Engineering, 
+									complemented by 11 years of academic and materials research. Proficient in data analysis, statistical analysis, 
+									hypothesis testing, customer behavior analysis, and machine learning. Adept at integrating quantitative skills 
+									with extensive research experience to uncover valuable insights. Proven track record of leading impactful projects, 
+									providing effective mentorship, and consistently delivering actionable findings that drive data-driven decisions.</p>
+								<ul class="about-info mt-4 px-md-0 px-2">
+									<li class="d-flex"><span>Profile:</span> <span>Data Science &amp; Analytics</span></li>
+									<li class="d-flex"><span>Domain:</span> <span>Retail, Ecommerce &amp; Digital Marketing</span></li>
+									<li class="d-flex"><span>Education:</span> <span>Doctor of Philosophy, M.E &amp; B.Tech(Mechanical Engineering)</span></li>
+									<li class="d-flex"><span>Language:</span> <span>English, Hindi</span></li>
+									<li class="d-flex"><span>BI Tools:</span> <span>Microsoft Power BI &amp; Tableau</span></li>
+									<li class="d-flex"><span>Other Skills:</span> <span>Advanced Excel, HTML & CSS, Python, SQL, Machine Learning, Deep Learning, NLP &amp; MLOPs</span></li>
+									<li class="d-flex"><span>Interest:</span> <span>Continuous Learning in Technology &amp; Adapting to New Tools and Technologies</span></li>
+									
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="counter-wrap ftco-animate d-flex mt-md-3">
+							<div class="text">
+								<p class="mb-4">
+									<span class="number" data-number="15">0</span> <span>+</span>
+									<span>&nbsp; Projects completed</span>
+								</p>
+								<p><a href="https://www.linkedin.com/in/raj-kumardataanalyst/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+
+
+	<!-- Resume section (Experience, Education, Certification) -->
+    <section class="ftco-section ftco-no-pb" id="resume-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-5">
+          <div class="col-md-10 heading-section text-center ftco-animate">
+          	<h1 class="big big-2">Resume</h1>
+            <h2 class="mb-4">Resume</h2>
+            <p>Seasoned Data Analyst with 3+ years of experience driving business strategies through data-driven insights. Proven expertise in data science, statistical analysis, machine learning algorithms and project management.</p>
+          </div>
+        </div>
+
+		<!-- Experience subsection -->
+		<div class="row">
+			<h1 class="big-4">Experience</h1>
+			<div class="underline"></div>
+		</div>
+		<br>
+		
+			<div class="row">
+				<div class="col-md-6">
+					<div class="resume-wrap ftco-animate">
+						<span class="date">Jun'22 - Present</span>
+						<h2>Data Analyst</h2>
+						<span class="position">MicroIT Technologies, Faridabad</span>
+						<!-- <p class="mt-4">Merkle, a leading CXM and media company with over 10K+ professionals globally. It's a part of Dentsu International.  -->
+						<ul>
+							<li>Collected and processed data from various sources (databases, spreadsheets, APIs, web) using SQL and Python for accuracy and efficiency.</li>
+							<li>Developed interactive dashboards and reports in Power BI/Tableau to uncover trends and communicate insights to stakeholders.</li>
+							<li>Implemented data refresh solutions with gateways and on-premises systems to ensure up-to-date information in real-time.</li>
+						</ul>
+						<!-- </p> -->
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="resume-wrap ftco-animate">
+						<span class="date">Jun'21 - May'22</span>
+						<h2>Junior Data Analyst</h2>
+						<span class="position">Aspire Innovations Pvt Ltd, Gurugram</span>
+						<!-- <p class="mt-4">Merkle, a leading CXM and media company with over 10K+ professionals globally. It's a part of Dentsu International.  -->
+						<ul>
+							<li>Developed interactive Power BI dashboards for executives, enhancing decision-making through effective data visualization.</li>
+							<li>Utilized statistical techniques to manage and analyze large datasets, ensuring accurate data interpretation.</li>
+							<li>Managed end-to-end data-driven projects, including defining business objectives, gathering requirements, and collaborating with stakeholders to deliver actionable insights.</li>
+		
+							</ul>
+						<!-- </p> -->
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="resume-wrap ftco-animate">
+						<span class="date">Dec'20 - Jun'21</span>
+						<h2>Assistant Professor</h2>
+						<span class="position">Mechanical Engineering, MMDU, Mullan, Ambala</span>
+						<!-- <p class="mt-4">MMDU, Mullana, Ambala is a private Univer.  -->
+						<ul>
+							<li>Demonstrated strong R&D enthusiasm while teaching and mentoring B.Tech and M.Tech students, integrating cutting-edge research findings.</li>
+							<li>Fostered industry-academia collaboration by facilitating partnerships between local industries and the university.</li>
+							<li>Acted as a University Examiner for the evaluation of answer scripts, practical examinations, and thesis, viva-voce/project evaluations.</li>
+						</ul>
+						<!-- </p> -->
+					</div>
+				</div>
+
+				<div class="col-md-6">
+					<div class="resume-wrap ftco-animate">
+						<span class="date">Jul'18 - Jul'20</span>
+						<h2>Research Associate</h2>
+						<span class="position">TBRL, DRDO (Ministry of Defence, Govt. of India), Chandigarh</span>
+						<!-- <p class="mt-4">TBRL is an DRDO lab, involved in development, production, processing and characterization.  -->
+						<ul>
+							<li>Managed setup, calibration, and maintenance of the Split Hopkinson pressure bar for accurate material property assessment under extreme loads.</li>
+							<li>Collaborated effectively with multidisciplinary teams of scientists, engineers, and professors to achieve project objectives.</li>
+							<li>Utilized advanced Excel for data analysis and visualization to uncover patterns and trends, contributing to informed decision-making.</li>
+						</ul>
+						<!-- </p> -->
+					</div>
+				</div>
+			</div>
+		<br>
+		<br>
+		
+		<!--Education subsection  -->
+		<div class="container">
+			<div class="row">
+				<h1 class="big-4">Education</h1>
+				<div class="underline"></div>
+			</div>
+		</div>
+		<br>
+		
+			<div class="row">
+    			<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Jan'14-Jul'18</span>
+    					<h2>Doctor of Philosophy (Metallurgical & Materials Engineering)</h2>
+    					<span class="position">PUNJAB ENGINEERING COLLEGE, (DEEMED TO BE UNIVERSITY), CHANDIGARH, INDIA</span>
+    					<p class="mt-4">Grade: First class.</p>
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Aug'11-Jul'13</span>
+    					<h2>Master of Engineering (Industrial Materials and Metallurgy)</h2>
+    					<span class="position">PEC UNIVERSITY OF TECNOLOGY, CHANDIGARH, INDIA</span>
+    					<p class="mt-4">Grade: First class.</p>
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate">
+    					<span class="date">Aug'14-Jun'18</span>
+    					<h2>Bachelor of Engineering (Mechanical)</h2>
+    					<span class="position">HARYANA ENGINEERING COLLEGE, KURUKSHETRA UNIVERSITY</span>
+    					<p class="mt-4">Grade: First class.</p>
+    				</div>
+    			</div>	
+    		</div>
+			<br>
+		
+
+		<!-- Certification subsection -->
+		<div class="container">
+			<div class="row">
+				<h1 class="big-4">Certification</h1>
+				<div class="underline"></div>
+			</div>
+		</div>
+		<br>
+			
+		<!-- Certification-1 -->
+			<div class="certification">
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/18ciQc-nDzysPFdWlw8mrmkSZfc91zOII" class="block-20 zoom-effect">
+						<img src="certificates/0-Fullstack datascience.png">
+					</a>
+						
+				</div>
+				<div class="certificate">
+					<a href="https://www.coursera.org/account/accomplishments/professional-cert/95322HN6Y452" class="block-20 zoom-effect">
+						<img src="certificates/0-IBM-Data science.png">
+					</a>
+					<!-- <div class="desc"> IBM Data Science</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://www.coursera.org/account/accomplishments/professional-cert/F79AR73P3Q89" class="block-20 zoom-effect">
+						<img src="certificates/0-Google cloud-ML.png">
+					</a>
+					<!-- <div class="desc"> Google cloud certificate</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1668Dy9DEi6HPXijWYA_Z2_CxjZZbWYNq" class="block-20 zoom-effect">
+						<img src="certificates/1-Advanced_excel.jpg" >
+					</a>
+					<!-- <div class="desc"> Advanced Excel</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1ly9oG8b_9_g_WoeIOx9XIPhuYn2s--s6" class="block-20 zoom-effect">
+						<img src="certificates/2-Mastering Microsoft Power Bi-lnkedin.png" >
+					</a>
+					<!-- <div class="desc"> Mastering Microsoft Power BI </div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://www.coursera.org/account/accomplishments/specialization/3FTGRNX8GVUR" class="block-20 zoom-effect">
+						<img src="certificates/5-Tableau-UCDavis.png" >
+					</a>
+					<!-- <div class="desc"> Data visualization with Tableau</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://www.coursera.org/account/accomplishments/verify/9X5VSFXTFSWF" class="block-20 zoom-effect">
+						<img src="certificates/6-SQL for Data science-UCDavis.png" >
+					</a>
+					<!-- <div class="desc"> SQL for Data Science</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1g09rAyabIeDYhKB6K_A2eXFdoFHQYdU8" class="block-20 zoom-effect">
+						<img src="certificates/7-Intermediate SQL-datacamp.png" >
+					</a>
+					<!-- <div class="desc"> Intermediate SQL</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://www.coursera.org/account/accomplishments/specialization/HQ5FEETJZW9M" class="block-20 zoom-effect">
+						<img src="certificates/8-Machine learning specialization.jpg" >
+					</a>
+					<!-- <div class="desc">Machine learning Specialization</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://www.coursera.org/account/accomplishments/verify/3E2ZA8JZZSR8" class="block-20 zoom-effect">
+						<img src="certificates/9-ML-washington.png" >
+					</a>
+					<!-- <div class="desc"> Machine Learning: Regression</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://www.coursera.org/account/accomplishments/specialization/YK35UTE9Q2XG" class="block-20 zoom-effect">
+						<img src="certificates/10-DL_specialization.png"  >
+					</a>
+					<!-- <div class="desc"> Deep Learning</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1upZOMyOoW6GLEc8uyiUXNQrpez-mtSEE" class="block-20 zoom-effect">
+						<img src="certificates/11-CNN with Tensorflow-365career.png" >
+					</a>
+					<!-- <div class="desc"> CNN with Tensorflow</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1upZOMyOoW6GLEc8uyiUXNQrpez-mtSEE" class="block-20 zoom-effect">
+						<img src="certificates/12-DL with Tensorflow-365datascience.png" >
+					</a>
+					<!-- <div class="desc"> Deep Learning with Tensorflow2</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1upZOMyOoW6GLEc8uyiUXNQrpez-mtSEE" class="block-20 zoom-effect">
+						<img src="certificates/13-Introduction to DL in python-datacamp.png" >
+					</a>
+					<!-- <div class="desc"> Introduction in Deep Learning in Python</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1mTkRjZC_HJ7Ql-pmeoA7lO-mL6IjKyQr" class="block-20 zoom-effect">
+						<img src="certificates/14-Importing file in python-datacamp.png" >
+					</a>
+					<!-- <div class="desc"> Introduction to Importing Data in Pyhton</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1mTkRjZC_HJ7Ql-pmeoA7lO-mL6IjKyQr" class="block-20 zoom-effect">
+						<img src="certificates/15-PySpark-Udemy.jpg" >
+					</a>
+					<!-- <div class="desc"> Spark and Python for Big Data with Pyspark</div> -->
+				</div>
+
+				<div class="certificate">
+					<a href="https://drive.google.com/drive/folders/1mTkRjZC_HJ7Ql-pmeoA7lO-mL6IjKyQr" class="block-20 zoom-effect">
+						<img src="certificates/16-Python for ML and Datascience-udemy.jpg"  >
+					</a>
+					<!-- <div class="desc"> Python for Machine Learning & Data Science Masterclass</div> -->
+				</div>
+			</div>
+			<br> 
+    		<div class="row justify-content-center mt-5">
+    			<div class="col-md-6 text-center ftco-animate">
+    				<p><a href="https://drive.google.com/drive/folders/179bnaQax4RJF5qKz-6l6puRp5ZHsrpyJ" class="btn btn-primary py-4 px-5">Download CV</a></p>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+	
+	<!-- Project section -->
+	
+    <section class="ftco-section" id="project-section">
+		<div class="container">
+		  <div class="row justify-content-center mb-5 pb-5">
+			<div class="col-md-7 heading-section text-center ftco-animate">
+			  <h1 class="big big-2">Projects</h1>
+			  <h2 class="mb-4">Projects</h2>
+			  <p>Below are the sample Data Analytics projects on Power Bi, Tableau, SQL, Python & ML.</p>
+			</div>
+		  </div>
+		</div>
+
+		
+
+				
+		<div id="Projects">
+			<div class="container"></div>
+				<div class="work-list">
+					<!-- project-1 -->
+					<div class="work">
+						<img src="Projects/2-IPL.gif" >
+						<!-- <div class="layer">
+							<h5>Indian-Premier-League (IPL) using Power BI</h5>
+							<p>Power Bi dashboard to analyze IPL team performances, player statistics, and match outcomes for enhanced strategic insights.</p>
+							<a href="https://github.com/rajkumarpec/Indian-Premier-League-IPL-"><i class="fas fa-external-link"></i></a>
+						</div> -->
+					</div>
+					<!-- project-2 -->
+					<div class="work">
+						<img src="projects/1-credit_transaction.gof.gif" >
+						<!-- <div class="layer">
+							<h5>Credit Card Transactions using Power BI</h5>
+							<p>Dynamic Power BI dashboard to deliver real-time, weekly insights into credit card transactions.</p>
+							<a href="https://github.com/rajkumarpec/Credit-card-transaction-report"><i class="fas fa-external-link"></i></a>
+						</div> -->
+					</div>
+					<!-- project-3 -->
+					<div class="work">
+						<img src="projects/3-global_superstore.jpg" >
+						<!-- <div class="layer">
+							<h5>Global Superstore Analysis using Power BI </h5>
+							<p>Power BI dashboard for Global Superstore, optimizing sales analysis, inventory management, customer segmentation.</p>
+							<a href="https://github.com/rajkumarpec/Power-BI-Dashboard"><i class="fas fa-external-link"></i></a>
+						</div> -->
+					</div>
+					<!-- project-4 -->
+					<div class="work">
+						<img src="projects/4-Hr_Analytics.jpg" >
+						<!-- <div class="layer">
+							<h5>HR Analytics using Power BI</h5>
+							<p>Developed an HR Analytics Dashboard to provide comprehensive insights, enhance decision-making.</p>
+							<a href="https://github.com/rajkumarpec/Power-bi-dashboard-3"><i class="fas fa-external-link"></i></a>
+						</div> -->
+					</div>
+					<!-- project-5 -->
+					<div class="work">
+						<img src="projects/5-IT-desk.jpg" >
+						<!-- <div class="layer">
+							<h5>IT-Ticket-Analysis using Power BI</h5>
+							<p>Power BI dashboard to analyze and improve the performance, efficiency, and customer satisfaction of the IT help desk.</p>
+							<a href="https://github.com/rajkumarpec/IT-Ticket-Analysis"><i class="fas fa-external-link"></i></a>
+						</div> -->
+					</div>
+					<!-- project-6 -->
+					<div class="work">
+						<img src="projects/6-Procurement-Spend Analysis.jpg" >
+						<!-- <div class="layer">
+							<h5>Procurement-Spend-Analysis</h5>
+							<p>Power Bi dashboard to identifying spending patterns and cost-saving opportunities to enhance decision-making and financial management.</p>
+							<a href="https://github.com/rajkumarpec/Procurement-Spend-Analysis"><i class="fas fa-external-link"></i></a>
+						</div> -->
+					</div>
+				</div>
+				<a href="https://github.com/rajkumarpec?tab=repositories" class="btn">See More</a>
+		    </div>
+		</div>
+	</section>
+
+	<!-- Publication & Blogs section -->
+	<section class="ftco-section" id="publications-blogs-section">
+		<div class="container">
+		  <div class="row justify-content-center mb-5 pb-5">
+			<div class="col-md-7 heading-section text-center ftco-animate">
+			  <h1 class="big big-2">Publications</h1>
+			  <h2 class="mb-4">Publications & Blogs</h2>
+			  <p>Below are my research publications & blogs</p>
+			</div>
+		  </div>
+	  
+		  <div class="row d-flex">
+			<!-- Publication 1 -->
+			<div class="col-md-4">
+			  <div class="certificate">
+				<a href="https://www.researchgate.net/publication/323273699_Aging_induced_structural_and_electrochemical_corrosion_behaviour_of_Sn-10Ag-05Cu_and_Sn-38Ag-07Cu_solder_alloys" class="block-20 zoom-effect">
+				  <img src="publication/1.jpg" alt="Publication 1" class="img-fluid">
+				</a>
+			  </div>
+			</div>
+	  
+			<!-- Publication 2 -->
+			<div class="col-md-4">
+			  <div class="certificate">
+				<a href="https://www.researchgate.net/publication/344425833_Structural_Thermal_and_Wetting_Characteristics_of_Novel_Low_Bi-Low_Ag_Containing_Sn-xAg-07Cu-10Bi_x05_to_15_Alloys_for_Electronic_Application" class="block-20 zoom-effect">
+				  <img src="publication/2.jpg" alt="Publication 2" class="img-fluid">
+				</a>
+			  </div>
+			</div>
+	  
+			<!-- Publication 3 -->
+			<div class="col-md-4">
+			  <div class="certificate">
+				<a href="https://www.researchgate.net/publication/353340925_Electrochemical_Corrosion_Behavior_of_Sn-10Ag-05Cu_and_Sn-38Ag-07cu_Lead_Free_Solder_Alloys_During_Storage_and_Transportation_Under_Chloride_Working_Condition" class="block-20 zoom-effect">
+				  <img src="publication/3.jpg" alt="Publication 3" class="img-fluid">
+				</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	</section>
+	  
+	
+    
+
+
+	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
+      <div class="container">
+		<div class="row d-md-flex align-items-center">
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="10">0</strong>
+                <span>Achievements</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="25">0</strong>
+                <span>Projects</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="1000">0</strong>
+                <span>Mentored Students</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="500">0</strong>
+                <span>Cups of coffee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	
+	  <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg)">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-7 ftco-animate text-center">
+						<h2>More projects on<span> Github  </span> </h2>
+						<div class="heading"> <h4> I love to solve business problems &amp; uncover hidden data stories </h4>
+						<br>
+						<p><a href="https://github.com/rajkumarpec" class="btn btn-primary py-3 px-5">GitHub</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+      <div class="container">
+      	<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+            <p>Below are the details to reach out to me!</p>
+          </div>
+        </div>
+
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-map-signs"></span>
+          		</div>
+          		<h3 class="mb-4">Address</h3>
+	            <p>Faridabad, India</p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-phone2"></span>
+          		</div>
+          		<h3 class="mb-4">Contact Number</h3>
+	            <p><a href="tel://0101010101">+91-9467485015</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-paper-plane"></span>
+          		</div>
+          		<h3 class="mb-4">Email Address</h3>
+	            <p><a href="mailto:info@yoursite.com">rajkumar.pec@outlook.com</a></p>
+	          </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-globe"></span>
+          		</div>
+          		<h3 class="mb-4">Download Resume</h3>
+	            <p><a href="https://drive.google.com/drive/folders/179bnaQax4RJF5qKz-6l6puRp5ZHsrpyJ">resumelink</a></p>
+	          </div>
+          </div>
+
+		  <div class="container">
+			<br>
+			<br>
+			<div class="row justify-content-center">
+				<div class="col-md-7 ftco-animate text-center">
+					<!-- <h2>Have a<span> Question?  </span> <a href="https://forms.gle/uLaTShUKXraAvHJ77" class="btn btn-primary py-3 px-5">Click Here</a> </h2> -->
+				</div>
+			</div>
+				<br>
+					<ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
+					  <li class="ftco-animate normal-txt">Find me on  </li>
+					  <!-- <li class="ftco-animate"><a href="https://www.youtube.com/@RishabhMishraOfficial"><span class="icon-youtube"></span></a></li> -->
+					  <li class="ftco-animate"><a href="https://www.linkedin.com/in/raj-kumardataanalyst/"><span class="icon-linkedin"></span></a></li>  
+					  <li class="ftco-animate"><a href="https://x.com/Rajkuma43461138"><span class="icon-twitter"></span></a></li>
+					  <li class="ftco-animate"><a href="https://www.facebook.com/rjk.kaushik86"><span class="icon-facebook"></span></a></li>
+				      <li class="ftco-animate"><a href="https://www.instagram.com/rjk.kaushik86/"><span class="icon-instagram"></span></a></li> -->
+					</ul>
+				<br>
+		   </div>
+   </div>
+ </section>
+
+
+ 
+	
+    <footer class="ftco-footer ftco-section">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-12 text-center">
+  
+			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="#" aria-hidden="true"></i>  <a href="" target="_blank"></a>
+	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+			</div>
+		  </div>
+		</div>
+	  </footer>
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
