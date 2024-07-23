@@ -9736,28 +9736,14 @@ textarea.form-control {
   /* Display as a grid container */
   display: grid;
   /* Create a grid with exactly three columns */
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   /* Set a 40px gap between grid items */
-  grid-gap: 30px;
+  grid-gap: 40px;
   /* Add a 50px margin to the top of the grid container */
-  margin-top: 30px;
+  margin-top: 50px;
   /* Add 40px margin to the left and right */
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-/* Adjust to two columns for smaller screens */
-@media (max-width: 900px) {
-  .work-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Adjust to one column for very small screens */
-@media (max-width: 600px) {
-  .work-list {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .work{
@@ -9808,12 +9794,12 @@ textarea.form-control {
   border-radius: 50%;
   text-align: center;
 }
-.work:hover img {
+/* .work:hover img {
   transform: scale(1.1);
 }
 .work:hover .layer{
   height: 100%;
-}
+} */
 .btn {
   display: block;
   margin: 50px auto;
