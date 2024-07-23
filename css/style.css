@@ -9757,7 +9757,7 @@ textarea.form-control {
   display: block;
   transition: transform 0.5s;
 }
-.layer{
+/* .layer{
   width: 100%;
   height: 0;
   background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
@@ -9792,8 +9792,8 @@ textarea.form-control {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  text-align: center;
-}
+  text-align: center; */
+/* } */
 /* .work:hover img {
   transform: scale(1.1);
 }
