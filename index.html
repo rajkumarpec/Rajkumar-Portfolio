@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Raj Kumar | Data Analyst & Applied AI/ML Professional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{--gold:#c9a84c;--gold-light:#e8c96e;--gold-dim:rgba(201,168,76,.14);--gold-border:rgba(201,168,76,.3);--bg:#0a0c10;--bg2:#0f1117;--card:#13161e;--border:rgba(255,255,255,.07);--text:#e8e8e8;--muted:#7a7f8e;--radius:14px;--tr:all .3s cubic-bezier(.4,0,.2,1)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+    ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+    .gold{color:var(--gold)}.muted{color:var(--muted)}
+    section{padding:100px 0}
+
+    /* NAV */
+    #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:var(--tr)}
+    #navbar.scrolled{background:rgba(10,12,16,.96);backdrop-filter:blur(16px);padding:12px 0;border-bottom:1px solid var(--border)}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;color:#fff!important;text-decoration:none}
+    .nav-brand span{color:var(--gold)}
+    .nav-links{display:flex;gap:2rem;list-style:none;margin:0;padding:0}
+    .nav-links a{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:var(--tr);position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:var(--tr);border-radius:2px}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-toggler{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+    .nav-toggler span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:var(--tr)}
+    @media(max-width:768px){.nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:var(--bg2);flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;transition:right .4s ease;border-left:1px solid var(--border)}.nav-links.open{right:0}.nav-toggler{display:flex}}
+
+    /* BUTTONS */
+    .btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#000;font-weight:700;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;padding:13px 26px;border-radius:40px;text-decoration:none;border:none;cursor:pointer;transition:var(--tr);box-shadow:0 4px 20px rgba(201,168,76,.3)}
+    .btn-gold:hover{background:var(--gold-light);color:#000;box-shadow:0 6px 28px rgba(201,168,76,.5);transform:translateY(-2px)}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-weight:600;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;padding:12px 26px;border-radius:40px;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:var(--tr)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+    /* LABELS */
+    .sec-label{font-size:.68rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:flex;align-items:center;gap:10px}
+    .sec-label::after{content:'';display:block;width:36px;height:1px;background:var(--gold);opacity:.5}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.8vw,2.75rem);font-weight:800;line-height:1.18;color:#fff;margin-bottom:1rem}
+    .sec-divider{width:44px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:3px;margin-bottom:1.5rem}
+
+    /* HERO */
+    #home{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:0}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 68% 50%,rgba(201,168,76,.07) 0%,transparent 65%),radial-gradient(ellipse 50% 70% at 15% 80%,rgba(201,168,76,.04) 0%,transparent 60%);pointer-events:none}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+    .hero-content{position:relative;z-index:1;padding-top:90px}
+    .hero-greeting{font-size:.72rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:12px}
+    .hero-greeting::before{content:'';width:32px;height:1px;background:var(--gold)}
+    .hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,4.6rem);font-weight:800;line-height:1.08;color:#fff;margin-bottom:.6rem}
+    .hero-name .dr{color:var(--gold);font-style:italic;font-size:0.65em}
+    .hero-typing-row{font-size:1.1rem;color:var(--muted);margin-bottom:.5rem;min-height:1.8rem}
+    #typing-text{color:var(--gold-light);font-weight:700;border-right:2px solid var(--gold);padding-right:3px;animation:blink .8s step-end infinite}
+    @keyframes blink{50%{border-color:transparent}}
+    .hero-tagline{font-size:.82rem;font-weight:600;letter-spacing:.06em;color:var(--muted);margin-bottom:1.6rem;text-transform:uppercase}
+    .hero-tagline span{color:var(--gold)}
+    .hero-desc{font-size:.93rem;color:var(--muted);max-width:510px;margin-bottom:2.2rem;line-height:1.88}
+    .hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
+
+    /* PHOTO RING */
+    .hero-photo-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+    .photo-ring{position:relative;width:320px;height:320px}
+    .photo-ring::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(var(--gold) 0deg,transparent 160deg,var(--gold) 320deg,transparent 360deg);animation:spin 9s linear infinite;opacity:.55}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .photo-ring::after{content:'';position:absolute;inset:2px;border-radius:50%;background:var(--bg)}
+    .hero-photo{position:absolute;inset:8px;border-radius:50%;overflow:hidden;z-index:1;border:2px solid rgba(201,168,76,.22)}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .h-badge{position:absolute;background:var(--card);border:1px solid var(--gold-border);border-radius:40px;padding:9px 16px;font-size:.74rem;font-weight:600;color:#fff;display:flex;align-items:center;gap:7px;z-index:2;box-shadow:0 8px 28px rgba(0,0,0,.45)}
+    .h-badge i{color:var(--gold);font-size:.85rem}
+    .b1{top:4px;left:-5px}.b2{bottom:24px;right:-18px}.b3{top:50%;right:-28px;transform:translateY(-50%)}
+    @media(max-width:992px){.photo-ring{width:260px;height:260px}.hero-content{text-align:center}.hero-greeting{justify-content:center}.hero-desc{margin-left:auto;margin-right:auto}.hero-btns{justify-content:center}.hero-photo-wrap{margin-bottom:2.5rem}}
+    @media(max-width:576px){.photo-ring{width:210px;height:210px}.h-badge{display:none}}
+
+    /* STAT STRIP */
+    .stat-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:38px 0}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:800;color:var(--gold);line-height:1;margin-bottom:.22rem}
+    .stat-lbl{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .stat-div{width:1px;background:var(--border);align-self:stretch}
+
+    /* ABOUT */
+    #about{background:var(--bg2)}
+    .about-photo{width:100%;max-width:360px;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;position:relative;border:1px solid var(--gold-border);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .about-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+    .about-badge{position:absolute;bottom:18px;left:16px;right:16px;background:rgba(10,12,16,.88);backdrop-filter:blur(12px);border:1px solid var(--gold-border);border-radius:10px;padding:12px 16px}
+    .about-badge .nm{font-weight:700;font-size:.95rem;color:#fff}
+    .about-badge .rl{font-size:.74rem;color:var(--gold)}
+    .info-row{display:flex;gap:.8rem;margin-bottom:.65rem;align-items:flex-start}
+    .info-label{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);min-width:72px;margin-top:2px;flex-shrink:0}
+    .info-val{font-size:.86rem;color:var(--text)}
+    .exp-pill{display:inline-flex;flex-direction:column;align-items:center;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:var(--radius);padding:12px 18px;min-width:90px;text-align:center}
+    .exp-pill .n{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:800;color:var(--gold);line-height:1}
+    .exp-pill .l{font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+    .focus-badge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:30px;border:1px solid var(--gold-border);color:var(--gold);background:var(--gold-dim);margin:3px}
+
+    /* SKILLS */
+    .sk-wrap{margin-bottom:1.1rem}
+    .sk-head{display:flex;justify-content:space-between;margin-bottom:5px}
+    .sk-name{font-size:.85rem;font-weight:500;color:var(--text)}
+    .sk-pct{font-size:.75rem;font-weight:700;color:var(--gold)}
+    .sk-track{height:5px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}
+    .sk-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1);box-shadow:0 0 12px rgba(201,168,76,.4)}
+    .tech-tag{display:inline-block;font-size:.72rem;font-weight:500;padding:4px 11px;border-radius:30px;border:1px solid var(--border);color:var(--muted);margin:3px;transition:var(--tr)}
+    .tech-tag:hover{border-color:var(--gold);color:var(--gold)}
+
+    /* GLASS CARD */
+    .glass-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:var(--tr)}
+    .glass-card:hover{border-color:var(--gold-border);box-shadow:0 8px 40px rgba(201,168,76,.08);transform:translateY(-3px)}
+
+    /* TIMELINE */
+    #resume{background:var(--bg)}
+    .timeline{position:relative;padding-left:1.8rem}
+    .timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent)}
+    .tl-item{position:relative;margin-bottom:2rem}
+    .tl-item::before{content:'';position:absolute;left:-26px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.15)}
+    .tl-date{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.22rem}
+    .tl-title{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.16rem}
+    .tl-org{font-size:.8rem;color:var(--muted);margin-bottom:.6rem}
+    .tl-body{font-size:.83rem;color:var(--muted);line-height:1.7;padding-left:1rem}
+    .tl-body li{margin-bottom:.25rem}
+    .tab-btns{display:flex;gap:.5rem;margin-bottom:2.2rem;flex-wrap:wrap}
+    .tab-btn{background:transparent;border:1px solid var(--border);border-radius:30px;color:var(--muted);font-size:.78rem;font-weight:600;padding:7px 18px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;transition:var(--tr)}
+    .tab-btn.active,.tab-btn:hover{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+    .tab-pane{display:none}.tab-pane.active{display:block}
+
+    /* PROJECTS */
+    #projects{background:var(--bg2)}
+    .proj-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:var(--tr);height:100%}
+    .proj-card:hover{border-color:var(--gold-border);transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+    .proj-img{width:100%;height:195px;overflow:hidden;position:relative}
+    .proj-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .proj-card:hover .proj-img img{transform:scale(1.07)}
+    .proj-img-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,12,16,.88) 0%,transparent 55%)}
+    .proj-body{padding:1.3rem}
+    .proj-tool{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+    .proj-title{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+    .proj-desc{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:.9rem}
+    .proj-link{font-size:.75rem;font-weight:700;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:5px;letter-spacing:.05em;transition:var(--tr)}
+    .proj-link:hover{color:var(--gold-light);gap:9px}
+
+    /* FEATURE PROJ */
+    .proj-featured{background:var(--card);border:1px solid var(--gold-border);border-radius:var(--radius);padding:2rem;transition:var(--tr);position:relative;overflow:hidden}
+    .proj-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+    .proj-featured:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(201,168,76,.1)}
+    .feat-label{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:flex;align-items:center;gap:6px}
+    .feat-label::before{content:'★';font-size:.7rem}
+
+    /* CERTIFICATIONS */
+    #certifications{background:var(--bg)}
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.9rem}
+    .cert-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:var(--tr);aspect-ratio:4/3}
+    .cert-item:hover{border-color:var(--gold-border);transform:translateY(-4px);box-shadow:0 8px 32px rgba(201,168,76,.12)}
+    .cert-item a{display:block;width:100%;height:100%}
+    .cert-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .cert-item:hover img{transform:scale(1.06)}
+
+    /* PUBLICATIONS */
+    #publications{background:var(--bg2)}
+    .pub-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:var(--tr)}
+    .pub-card:hover{border-color:var(--gold-border);transform:translateY(-4px);box-shadow:0 8px 32px rgba(201,168,76,.1)}
+    .pub-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:var(--gold-border);line-height:1;margin-bottom:.6rem}
+    .pub-journal{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+    .pub-title{font-size:.88rem;font-weight:600;color:#fff;line-height:1.5;margin-bottom:.5rem}
+    .pub-meta{font-size:.76rem;color:var(--muted)}
+    .pub-badge{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:20px;border:1px solid var(--gold-border);color:var(--gold);margin-top:.5rem}
+
+    /* CONTACT */
+    #contact{background:var(--bg)}
+    .ct-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem 1.4rem;text-align:center;transition:var(--tr)}
+    .ct-card:hover{border-color:var(--gold-border);transform:translateY(-4px);box-shadow:0 8px 32px rgba(201,168,76,.1)}
+    .ct-icon{width:50px;height:50px;border-radius:50%;background:var(--gold-dim);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;margin:0 auto .9rem;font-size:1.05rem;color:var(--gold)}
+    .ct-label{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+    .ct-val{font-size:.87rem;font-weight:500;color:var(--text)}
+    .ct-val a{color:var(--text);text-decoration:none;transition:var(--tr)}.ct-val a:hover{color:var(--gold)}
+    .social-row{display:flex;gap:.9rem;justify-content:center;margin-top:2.2rem}
+    .s-link{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.88rem;text-decoration:none;transition:var(--tr)}
+    .s-link:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);transform:translateY(-3px)}
+
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:.8rem;color:var(--muted)}
+    footer span{color:var(--gold)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+    /* OPEN TO WORK BANNER */
+    .otw-banner{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);border-radius:40px;padding:6px 14px;font-size:.75rem;font-weight:700;color:#4ade80;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.2rem}
+    .otw-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a href="#home" class="nav-brand">Dr. Raj<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggler" id="navToggler"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-1 order-2">
+        <div class="hero-content">
+          <div class="otw-banner"><span class="otw-dot"></span> Open to Industry Roles</div>
+          <div class="hero-greeting">Hello, I'm</div>
+          <h1 class="hero-name"><span class="dr">Dr.</span> Raj Kumar</h1>
+          <div class="hero-typing-row"><span id="typing-text"></span></div>
+          <p class="hero-tagline">Power BI &nbsp;<span>·</span>&nbsp; Python &nbsp;<span>·</span>&nbsp; ML/AI &nbsp;<span>·</span>&nbsp; PhD (Materials) &nbsp;<span>·</span>&nbsp; Ex-DRDO</p>
+          <p class="hero-desc">
+            Applied AI/ML Engineer and Data Analyst with 14+ years of experience spanning defence research, analytics, and academia. Hands-on experience in LLM-based RAG systems, ML pipelines, and data-driven applications, with a strong focus on translating complex problems into deployable AI solutions.
+          </p>
+          <div class="hero-btns">
+            <a href="https://drive.google.com/file/d/12LGxkO4NiXLCGmgeD5-APu9QvTxnYvqo/view?usp=drive_link" class="btn-gold" target="_blank"><i class="fa-solid fa-download"></i> Download CV</a>
+            <a href="#projects" class="btn-outline"><i class="fa-solid fa-arrow-down"></i> View Projects</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-2 order-1 d-flex justify-content-center">
+        <div class="hero-photo-wrap">
+          <div class="photo-ring">
+            <div class="hero-photo">
+              <img src="images/profile-1.png" alt="Dr. Raj Kumar" onerror="this.src='https://ui-avatars.com/api/?name=Dr+Raj+Kumar&background=c9a84c&color=000&size=400&bold=true'">
+            </div>
+          </div>
+          <div class="h-badge b1"><i class="fa-solid fa-chart-bar"></i> Power BI · Data Analyst</div>
+          <div class="h-badge b2"><i class="fa-brands fa-python"></i> ML · LLMs · RAG</div>
+          <div class="h-badge b3"><i class="fa-solid fa-shield-halved"></i> Ex-DRDO Researcher</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="stat-strip">
+  <div class="container">
+    <div class="d-flex justify-content-around align-items-center flex-wrap gap-4">
+      <div class="text-center"><div class="stat-num" data-target="14">0</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat-div d-none d-sm-block"></div>
+      <div class="text-center"><div class="stat-num" data-target="25">0</div><div class="stat-lbl">Projects Completed</div></div>
+      <div class="stat-div d-none d-sm-block"></div>
+      <div class="text-center"><div class="stat-num" data-target="10000">0</div><div class="stat-lbl">Students Mentored</div></div>
+      <div class="stat-div d-none d-sm-block"></div>
+      <div class="text-center"><div class="stat-num" data-target="3">0</div><div class="stat-lbl">SCI Publications</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-4 text-center reveal">
+        <div class="about-photo mx-auto">
+          <img src="images/about-me.png" alt="Dr. Raj Kumar" onerror="this.src='https://ui-avatars.com/api/?name=Dr+Raj+Kumar&background=c9a84c&color=000&size=600&bold=true'">
+          <div class="about-badge"><div class="nm">Dr. Raj Kumar</div><div class="rl">Data Analyst &amp; Applied AI/ML Professional</div></div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="sec-label reveal">About Me</div>
+        <h2 class="sec-title reveal d1">Data Analyst &amp; Applied AI/ML Engineer</h2>
+        <div class="sec-divider reveal d2"></div>
+
+        <p class="reveal d2" style="color:var(--muted);font-size:.93rem;line-height:1.9;margin-bottom:1.4rem;">
+          With a PhD in Metallurgical & Materials Engineering and 14+ years across defence research, engineering education, and industry analytics, I bring a multidisciplinary perspective to data-driven problem solving. Spent ~3 years as a <strong style="color:var(--gold)">Data Analyst</strong> delivering end-to-end Power BI solutions and ML-embedded analytics pipelines to business stakeholders. Currently teaching Python, ML, NLP, and Data Science at university level — bridging classroom and real-world AI applications.
+        </p>
+        <p class="reveal d2" style="color:var(--muted);font-size:.93rem;line-height:1.9;margin-bottom:1.6rem;">
+          Actively building advanced AI systems including LLM-powered RAG pipelines, agentic workflows, and time series forecasting models. Seeking to transition into an <strong style="color:var(--gold)">industry-facing Data Science or Analytics role</strong> where engineering domain knowledge combined with AI/ML and BI skills drives measurable impact.
+        </p>
+
+        <!-- Focus areas -->
+        <div class="mb-4 reveal d2">
+          <span class="focus-badge"><i class="fa-solid fa-chart-bar"></i> Power BI &amp; Analytics</span>
+          <span class="focus-badge"><i class="fa-brands fa-python"></i> Python &amp; ML</span>
+          <span class="focus-badge"><i class="fa-solid fa-robot"></i> LLMs &amp; RAG</span>
+          <span class="focus-badge"><i class="fa-solid fa-chalkboard-user"></i> AI/ML Teaching</span>
+          <span class="focus-badge"><i class="fa-solid fa-database"></i> SQL &amp; ETL</span>
+        </div>
+
+        <!-- Quick info -->
+        <div class="row g-2 mb-4 reveal d3">
+          <div class="col-md-6">
+            <div class="info-row"><span class="info-label">Current</span><span class="info-val">Asst. Professor, GD Goenka University</span></div>
+            <div class="info-row"><span class="info-label">PhD</span><span class="info-val">Metallurgical &amp; Materials Engg, PEC</span></div>
+            <div class="info-row"><span class="info-label">Location</span><span class="info-val">Gurugram, India</span></div>
+          </div>
+          <div class="col-md-6">
+            <div class="info-row"><span class="info-label">Industry</span><span class="info-val">Data Analyst – MicroIT (2022–2024)</span></div>
+            <div class="info-row"><span class="info-label">Research</span><span class="info-val">DRDO, Ministry of Defence (2018–2020)</span></div>
+            <div class="info-row"><span class="info-label">GATE</span><span class="info-val">Qualified – 86.86 Percentile</span></div>
+          </div>
+        </div>
+
+        <!-- Experience pills -->
+        <div class="d-flex flex-wrap gap-3 mb-4 reveal d3">
+          <div class="exp-pill"><span class="n">~3</span><span class="l">Yrs Industry</span></div>
+          <div class="exp-pill"><span class="n">5.5</span><span class="l">Yrs Teaching</span></div>
+          <div class="exp-pill"><span class="n">2</span><span class="l">Yrs DRDO</span></div>
+          <div class="exp-pill"><span class="n">4</span><span class="l">Yrs PhD</span></div>
+        </div>
+
+        <!-- Skill bars -->
+        <div class="row g-3 reveal d4">
+          <div class="col-md-6">
+            <div class="sk-wrap"><div class="sk-head"><span class="sk-name">Power BI (DAX, RLS, Reports)</span><span class="sk-pct">95%</span></div><div class="sk-track"><div class="sk-fill" data-width="92"></div></div></div>
+            <div class="sk-wrap"><div class="sk-head"><span class="sk-name">Statistical Analysis</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-fill" data-width="88"></div></div></div>
+            <div class="sk-wrap"><div class="sk-head"><span class="sk-name">Python (Pandas, Scikit-learn)</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" data-width="78"></div></div></div>
+          </div>
+          <div class="col-md-6">
+            <div class="sk-wrap"><div class="sk-head"><span class="sk-name">SQL</span><span class="sk-pct">75%</span></div><div class="sk-track"><div class="sk-fill" data-width="75"></div></div></div>
+            <div class="sk-wrap"><div class="sk-head"><span class="sk-name">ML · DL · NLP · Time Series</span><span class="sk-pct">75%</span></div><div class="sk-track"><div class="sk-fill" data-width="72"></div></div></div>
+            <div class="sk-wrap"><div class="sk-head"><span class="sk-name">LLMs · RAG · GenAI</span><span class="sk-pct">65%</span></div><div class="sk-track"><div class="sk-fill" data-width="65"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Tech tags -->
+        <div class="mt-3 reveal d4">
+          <span class="tech-tag">Power BI</span><span class="tech-tag">Tableau</span><span class="tech-tag">Python</span><span class="tech-tag">SQL</span><span class="tech-tag">Pandas</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Pytorch</span><span class="tech-tag">NLTK</span><span class="tech-tag">SpaCy</span><span class="tech-tag">LangChain</span><span class="tech-tag">Hugging Face</span><span class="tech-tag">Ollama</span><span class="tech-tag">LlamaIndex</span><span class="tech-tag">FAISS</span><span class="tech-tag">ChromaDB</span><span class="tech-tag">Git</span><span class="tech-tag">Docker</span><span class="tech-tag">Advanced Excel</span>
+        </div>
+
+        <div class="mt-4 d-flex flex-wrap gap-2 reveal d4">
+          <a href="https://www.linkedin.com/in/dr-raj-kumar-kaushik-a9611a68/" class="btn-gold" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=smv1DREAAAAJ&hl=en" class="btn-outline" target="_blank"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="sec-label reveal justify-content-center">Career Timeline</div>
+      <h2 class="sec-title reveal d1">Resume</h2>
+      <div class="sec-divider mx-auto reveal d2"></div>
+      <p class="muted reveal d2" style="max-width:540px;margin:0 auto 1.8rem;">
+        Data Analyst &amp; Applied AI/ML Professional with a PhD · 14+ years across industry, defence research &amp; academia.
+      </p>
+      <a href="https://drive.google.com/file/d/12LGxkO4NiXLCGmgeD5-APu9QvTxnYvqo/view?usp=drive_link" class="btn-gold reveal d3" target="_blank"><i class="fa-solid fa-download"></i> Download Full CV</a>
+    </div>
+
+    <div class="tab-btns justify-content-center d-flex reveal">
+      <button class="tab-btn active" data-tab="industry">Industry &amp; Research</button>
+      <button class="tab-btn" data-tab="teaching">Teaching</button>
+      <button class="tab-btn" data-tab="education">Education</button>
+    </div>
+
+    <!-- INDUSTRY TAB -->
+    <div class="tab-pane active" id="tab-industry">
+      <div class="row g-4">
+        <div class="col-lg-6 reveal">
+          <div class="glass-card h-100">
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">Mar 2022 – Sep 2024 &nbsp;(~3 Years)</div>
+                <div class="tl-title">Data Analyst</div>
+                <div class="tl-org"><i class="fa-solid fa-building" style="color:var(--gold);font-size:.7rem"></i> &nbsp;MicroIT Technologies, Faridabad</div>
+                <ul class="tl-body">
+                  <li>Delivered end-to-end analytics projects aligned with business goals and stakeholder KPIs</li>
+                  <li>Designed advanced Power BI solutions: optimised data models, DAX measures, Row-Level Security (RLS), and paginated reports</li>
+                  <li>Applied ML techniques to build predictive models and embedded results into Power BI dashboards for forecasting</li>
+                  <li>Integrated and transformed data from SQL Server, MySQL, Excel, SharePoint, Dataverse &amp; Web APIs using Power Query</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal d1">
+          <div class="glass-card h-100">
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">Jul 2018 – Jul 2020 &nbsp;(2 Years)</div>
+                <div class="tl-title">Research Associate</div>
+                <div class="tl-org"><i class="fa-solid fa-shield-halved" style="color:var(--gold);font-size:.7rem"></i> &nbsp;TBRL, DRDO – Ministry of Defence, Chandigarh</div>
+                <ul class="tl-body">
+                  <li>Automated data processing, statistical analysis &amp; visualisation workflows using MATLAB and Advanced Excel on large experimental datasets</li>
+                  <li>Managed calibration &amp; operation of Split Hopkinson Pressure Bar (SHPB) — high-precision defence instrumentation</li>
+                  <li>Collaborated with ISRO, DRDO, BARC, IITs, and NITs on multidisciplinary research projects</li>
+                </ul>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">Jan 2014 – Jul 2018</div>
+                <div class="tl-title">Research Scholar – PhD</div>
+                <div class="tl-org"><i class="fa-solid fa-flask" style="color:var(--gold);font-size:.7rem"></i> &nbsp;Punjab Engineering College (PEC), Chandigarh</div>
+                <ul class="tl-body">
+                  <li>Experimental design, data collection &amp; analytical modelling in metallurgical materials science</li>
+                  <li>Published 3 SCI-indexed papers (2×Q1, 1×Q3); cumulative IF &gt;10</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEACHING TAB -->
+    <div class="tab-pane" id="tab-teaching">
+      <div class="row g-4">
+        <div class="col-lg-6 reveal">
+          <div class="glass-card h-100">
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">Sep 2024 – Present</div>
+                <div class="tl-title">Assistant Professor – Mechanical Engg &amp; AI/ML/Data Science</div>
+                <div class="tl-org"><i class="fa-solid fa-chalkboard-user" style="color:var(--gold);font-size:.7rem"></i> &nbsp;G.D. Goenka University, Gurugram (NAAC A+)</div>
+                <ul class="tl-body">
+                  <li>Teach Python, Machine Learning, NLP, SQL, and Data Science to B.Tech and MCA students</li>
+                  <li>Course Coordinator for AutoCAD — School of Engineering &amp; Sciences</li>
+                  <li>Integrate AI/ML concepts with engineering applications for multidisciplinary outcomes</li>
+                </ul>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">Dec 2020 – Mar 2022</div>
+                <div class="tl-title">Assistant Professor – Mechanical Engineering</div>
+                <div class="tl-org"><i class="fa-solid fa-chalkboard-user" style="color:var(--gold);font-size:.7rem"></i> &nbsp;Maharishi Markandeshwar University, Mullana, Ambala (NAAC A++)</div>
+                <ul class="tl-body">
+                  <li>Taught Python Programming, Machine Learning, NLP, and AutoCAD to B.Tech, BCA/MCA students</li>
+                  <li>Conducted practical demonstrations in coding, data analysis, and project work</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 reveal d1">
+          <div class="glass-card h-100">
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">Jan 2018 – Jul 2018</div>
+                <div class="tl-title">Assistant Professor (Guest Faculty)</div>
+                <div class="tl-org"><i class="fa-solid fa-chalkboard-user" style="color:var(--gold);font-size:.7rem"></i> &nbsp;Punjab Engineering College (PEC), Chandigarh</div>
+                <ul class="tl-body">
+                  <li>Taught Design of Experiments (DOE) and Research Methodology to M.Tech and PhD students</li>
+                  <li>Covered analytical/statistical tools and experimental design concepts</li>
+                </ul>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">Feb 2009 – Jul 2011</div>
+                <div class="tl-title">Assistant Professor – Mechanical Engineering</div>
+                <div class="tl-org"><i class="fa-solid fa-chalkboard-user" style="color:var(--gold);font-size:.7rem"></i> &nbsp;Maharishi Markandeshwar University, Mullana, Ambala (NAAC A++)</div>
+                <ul class="tl-body">
+                  <li>Taught Strength of Materials, Engineering Mechanics, Theory of Machines, Manufacturing Process, Engineering Drawing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION TAB -->
+    <div class="tab-pane" id="tab-education">
+      <div class="row g-4">
+        <div class="col-lg-4 reveal">
+          <div class="glass-card h-100">
+            <div class="tl-date">Jan 2014 – Jul 2020</div>
+            <div class="tl-title mt-2">Doctor of Philosophy (PhD)</div>
+            <div class="tl-org">Metallurgical &amp; Materials Engineering</div>
+            <div style="font-size:.83rem;color:var(--muted);margin-bottom:.8rem">Punjab Engineering College (PEC), Chandigarh</div>
+            <span class="tech-tag" style="border-color:var(--gold-border);color:var(--gold)">CGPA: 8.0/10</span>
+            <span class="tech-tag" style="border-color:var(--gold-border);color:var(--gold)">MHRD Scholar</span>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal d1">
+          <div class="glass-card h-100">
+            <div class="tl-date">Aug 2011 – Jul 2013</div>
+            <div class="tl-title mt-2">Master of Engineering (ME)</div>
+            <div class="tl-org">Industrial Materials &amp; Metallurgy</div>
+            <div style="font-size:.83rem;color:var(--muted);margin-bottom:.8rem">PEC University of Technology, Chandigarh</div>
+            <span class="tech-tag" style="border-color:var(--gold-border);color:var(--gold)">CGPA: 6.25/10</span>
+            <span class="tech-tag" style="border-color:var(--gold-border);color:var(--gold)">MHRD Scholar</span>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal d2">
+          <div class="glass-card h-100">
+            <div class="tl-date">Aug 2004 – Jul 2008</div>
+            <div class="tl-title mt-2">B.Tech – Mechanical Engineering</div>
+            <div class="tl-org">Mechanical Engineering</div>
+            <div style="font-size:.83rem;color:var(--muted);margin-bottom:.8rem">HEC, Kurukshetra University</div>
+            <span class="tech-tag" style="border-color:var(--gold-border);color:var(--gold)">62.5%</span>
+            <span class="tech-tag" style="border-color:var(--gold-border);color:var(--gold)">GATE 86.86 Pctile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="sec-label reveal justify-content-center">My Work</div>
+      <h2 class="sec-title reveal d1">Projects</h2>
+      <div class="sec-divider mx-auto reveal d2"></div>
+    </div>
+
+    <!-- Featured AI Projects -->
+    <div class="row g-4 mb-4">
+      <div class="col-lg-6 reveal">
+        <div class="proj-featured">
+          <div class="feat-label">Featured AI Project</div>
+          <div class="proj-tool">Python · LangChain · Ollama · FAISS · ChromaDB</div>
+          <div class="proj-title" style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.5rem">Enterprise Retrieval-Augmented Generation (RAG) System</div>
+          <div class="proj-desc">Designed a multi-agent RAG architecture integrating hybrid vector search and LLM-based reasoning. Improved answer relevance using semantic retrieval and embedding optimisation. Reduced hallucination through context-aware retrieval and prompt engineering. Running fully CPU-only on local Ollama models — no cloud dependency.</div>
+          <a href="https://github.com/rajkumarpec" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal d1">
+        <div class="proj-featured">
+          <div class="feat-label">Applied ML Project</div>
+          <div class="proj-tool">Python · Pandas · Scikit-learn · Time Series</div>
+          <div class="proj-title" style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.5rem">Time Series Forecasting – Electricity Demand Prediction</div>
+          <div class="proj-desc">Built an end-to-end time series forecasting pipeline for hourly electricity demand, from data ingestion to model evaluation. Performed trend, seasonality, stationarity, and autocorrelation analysis. Benchmarked multiple models using MAE, RMSE, MAPE, and SMAPE, delivering interpretable forecasts for capacity planning.</div>
+          <a href="https://github.com/rajkumarpec" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Power BI Projects -->
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="proj-card"><div class="proj-img"><img src="Projects/1-IPL.gif" alt="IPL"><div class="proj-img-ov"></div></div><div class="proj-body"><div class="proj-tool">Power BI</div><div class="proj-title">IPL Performance Dashboard</div><div class="proj-desc">Analyzes IPL team performances, player stats, and match outcomes for strategic business insights.</div><a href="https://github.com/rajkumarpec/Indian-Premier-League-IPL-" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="proj-card"><div class="proj-img"><img src="Projects/2-credit_transaction.gif" alt="Credit Card"><div class="proj-img-ov"></div></div><div class="proj-body"><div class="proj-tool">Power BI</div><div class="proj-title">Credit Card Transactions</div><div class="proj-desc">Dynamic dashboard with real-time, weekly credit card analytics — DAX measures and RLS applied.</div><a href="https://github.com/rajkumarpec/Credit-card-transaction-report" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="proj-card"><div class="proj-img"><img src="Projects/3-Human Resources.gif" alt="HR"><div class="proj-img-ov"></div></div><div class="proj-body"><div class="proj-tool">Power BI</div><div class="proj-title">Human Resources Analysis</div><div class="proj-desc">Workforce KPIs and HR metrics enabling data-driven people management decisions.</div><a href="https://github.com/rajkumarpec/Human-Resources-Analysis" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="proj-card"><div class="proj-img"><img src="Projects/4-playstore.gif.gif" alt="Playstore"><div class="proj-img-ov"></div></div><div class="proj-body"><div class="proj-tool">Power BI</div><div class="proj-title">Google Play Store Analysis</div><div class="proj-desc">Market trend dashboard identifying app category insights from Play Store dataset.</div><a href="https://github.com/rajkumarpec/Play-store-Analysis" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="proj-card"><div class="proj-img"><img src="Projects/5-Procurement-Spend Analysis.jpg" alt="Procurement"><div class="proj-img-ov"></div></div><div class="proj-body"><div class="proj-tool">Power BI</div><div class="proj-title">Procurement Spend Analysis</div><div class="proj-desc">Cost-saving opportunity identification via spend pattern analytics and supplier insights.</div><a href="https://github.com/rajkumarpec/Procurement-Spend-Analysis" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a></div></div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="proj-card"><div class="proj-img"><img src="Projects/6-IT-desk.jpg" alt="IT Desk"><div class="proj-img-ov"></div></div><div class="proj-body"><div class="proj-tool">Power BI</div><div class="proj-title">IT Help Desk Ticket Analysis</div><div class="proj-desc">Help desk KPI dashboard measuring resolution time, SLA compliance, and CSAT scores.</div><a href="https://github.com/rajkumarpec/IT-Ticket-Analysis" class="proj-link" target="_blank">View on GitHub <i class="fa-solid fa-arrow-right"></i></a></div></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <a href="https://github.com/rajkumarpec?tab=repositories" class="btn-outline" target="_blank"><i class="fa-brands fa-github"></i> All Projects on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="sec-label reveal justify-content-center">Credentials</div>
+      <h2 class="sec-title reveal d1">Certifications</h2>
+      <div class="sec-divider mx-auto reveal d2"></div>
+      <p class="muted reveal d2">IBM · Google · Coursera · LinkedIn · DataCamp · AlmaBetter</p>
+    </div>
+    <div class="cert-grid reveal">
+      <div class="cert-item"><a href="https://drive.google.com/drive/folders/18ciQc-nDzysPFdWlw8mrmkSZfc91zOII" target="_blank"><img src="certificates/0-Fullstack datascience.png" alt="Full Stack DS – AlmaBetter"></a></div>
+      <div class="cert-item"><a href="https://www.coursera.org/account/accomplishments/professional-cert/95322HN6Y452" target="_blank"><img src="certificates/0-IBM-Data science.png" alt="IBM Data Science Professional"></a></div>
+      <div class="cert-item"><a href="https://www.coursera.org/account/accomplishments/professional-cert/F79AR73P3Q89" target="_blank"><img src="certificates/0-Google cloud-ML.png" alt="Google Cloud ML"></a></div>
+      <div class="cert-item"><a href="https://www.coursera.org/account/accomplishments/specialization/HQ5FEETJZW9M" target="_blank"><img src="certificates/8-Machine learning specialization.jpg" alt="ML Specialization – UW"></a></div>
+      <div class="cert-item"><a href="https://www.coursera.org/account/accomplishments/specialization/YK35UTE9Q2XG" target="_blank"><img src="certificates/10-DL_specialization.png" alt="Deep Learning Specialization"></a></div>
+      <div class="cert-item"><a href="https://www.coursera.org/account/accomplishments/specialization/3FTGRNX8GVUR" target="_blank"><img src="certificates/5-Tableau-UCDavis.png" alt="Tableau – UC Davis"></a></div>
+      <div class="cert-item"><a href="https://www.coursera.org/account/accomplishments/verify/9X5VSFXTFSWF" target="_blank"><img src="certificates/6-SQL for Data science-UCDavis.png" alt="SQL for Data Science – UC Davis"></a></div>
+      <div class="cert-item"><a href="https://drive.google.com/drive/folders/1668Dy9DEi6HPXijWYA_Z2_CxjZZbWYNq" target="_blank"><img src="certificates/1-Advanced_excel.jpg" alt="Advanced Excel"></a></div>
+      <div class="cert-item"><a href="https://drive.google.com/drive/folders/1ly9oG8b_9_g_WoeIOx9XIPhuYn2s--s6" target="_blank"><img src="certificates/2-Mastering Microsoft Power Bi-lnkedin.png" alt="Master Power BI – LinkedIn"></a></div>
+      <div class="cert-item"><a href="https://drive.google.com/drive/folders/1g09rAyabIeDYhKB6K_A2eXFdoFHQYdU8" target="_blank"><img src="certificates/7-Intermediate SQL-datacamp.png" alt="SQL – DataCamp"></a></div>
+      <div class="cert-item"><a href="https://drive.google.com/drive/folders/1upZOMyOoW6GLEc8uyiUXNQrpez-mtSEE" target="_blank"><img src="certificates/11-CNN with Tensorflow-365career.png" alt="CNN with TensorFlow"></a></div>
+      <div class="cert-item"><a href="https://drive.google.com/drive/folders/1upZOMyOoW6GLEc8uyiUXNQrpez-mtSEE" target="_blank"><img src="certificates/12-DL with Tensorflow-365datascience.png" alt="DL with TensorFlow"></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="sec-label reveal justify-content-center">Research</div>
+      <h2 class="sec-title reveal d1">Research Publications</h2>
+      <div class="sec-divider mx-auto reveal d2"></div>
+      <p class="muted reveal d2">Cumulative Impact Factor: 12.2 &nbsp;·&nbsp; Peer Reviewer: Springer Journals</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 reveal">
+        <div class="pub-card h-100">
+          <div class="pub-num">01</div>
+          <div class="pub-journal">Journal of Alloys and Compounds</div>
+          <div class="pub-title">Aging induced structural and electrochemical corrosion behavior of Sn-1.0Ag-0.5Cu and Sn-3.8Ag-0.7Cu solder alloys</div>
+          <div class="pub-meta">Rajkumar Kaushik, Uma Batra, J.D. Sharma · Vol. 745, 2018, pp. 446–454</div>
+          <div><span class="pub-badge">SCI Q1</span> <span class="pub-badge">IF: 6.3</span></div>
+          <div class="mt-3"><a href="https://www.researchgate.net/publication/323273699" class="proj-link" target="_blank">Read Paper <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+      </div>
+      <div class="col-lg-4 reveal d1">
+        <div class="pub-card h-100">
+          <div class="pub-num">02</div>
+          <div class="pub-journal">Metals and Materials International</div>
+          <div class="pub-title">Structural, Thermal and Wetting Characteristics of Novel Low Bi-Low Ag Containing Sn-xAg-0.7Cu-1.0Bi Alloys for Electronic Application</div>
+          <div class="pub-meta">Rajkumar Kaushik, Uma Batra, J.D. Sharma · 2020</div>
+          <div><span class="pub-badge">SCIE Q1</span> <span class="pub-badge">IF: 4.0</span></div>
+          <div class="mt-3"><a href="https://www.researchgate.net/publication/344425833" class="proj-link" target="_blank">Read Paper <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+      </div>
+      <div class="col-lg-4 reveal d2">
+        <div class="pub-card h-100">
+          <div class="pub-num">03</div>
+          <div class="pub-journal">Transactions on Electrical and Electronic Materials</div>
+          <div class="pub-title">Electrochemical Corrosion behavior of Sn-1.0Ag-0.5Cu and Sn-3.8Ag-0.7Cu lead-free solder alloys during storage and transportation under chloride working condition</div>
+          <div class="pub-meta">Rajkumar Kaushik, Uma Batra, J.D. Sharma · 2021</div>
+          <div><span class="pub-badge">ESCI</span> <span class="pub-badge">IF: 1.9</span></div>
+          <div class="mt-3"><a href="https://www.researchgate.net/publication/353340925" class="proj-link" target="_blank">Read Paper <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog -->
+    <div class="row g-4 mt-1">
+      <div class="col-12"><div class="sec-label">Blogs</div></div>
+      <div class="col-md-4 reveal">
+        <div class="glass-card">
+          <div class="proj-tool">Medium Blog</div>
+          <div class="proj-title">Database Management – A Practical Overview</div>
+          <div class="proj-desc" style="font-size:.82rem">An introductory guide to database concepts and management strategies for practitioners.</div>
+          <a href="https://medium.com/@rjk.kaushik86/database-d5f2142d2e87" class="proj-link" target="_blank">Read on Medium <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="sec-label reveal justify-content-center">Get In Touch</div>
+      <h2 class="sec-title reveal d1">Contact Me</h2>
+      <div class="sec-divider mx-auto reveal d2"></div>
+      <p class="muted reveal d2">Open to Data Science, Data Analytics, and ML Engineering roles in industry.</p>
+    </div>
+    <div class="row g-4 justify-content-center mb-4">
+      <div class="col-sm-6 col-lg-3 reveal"><div class="ct-card"><div class="ct-icon"><i class="fa-solid fa-location-dot"></i></div><div class="ct-label">Location</div><div class="ct-val">Gurugram, India</div></div></div>
+      <div class="col-sm-6 col-lg-3 reveal d1"><div class="ct-card"><div class="ct-icon"><i class="fa-solid fa-phone"></i></div><div class="ct-label">Phone</div><div class="ct-val"><a href="tel:+919467485015">+91-9467485015</a></div></div></div>
+      <div class="col-sm-6 col-lg-3 reveal d2"><div class="ct-card"><div class="ct-icon"><i class="fa-solid fa-envelope"></i></div><div class="ct-label">Email</div><div class="ct-val"><a href="mailto:rjk.kaushik86@gmail.com">rjk.kaushik86@gmail.com</a></div></div></div>
+      <div class="col-sm-6 col-lg-3 reveal d3"><div class="ct-card"><div class="ct-icon"><i class="fa-solid fa-file-pdf"></i></div><div class="ct-label">Resume</div><div class="ct-val"><a href="https://drive.google.com/file/d/12LGxkO4NiXLCGmgeD5-APu9QvTxnYvqo/view?usp=drive_link" target="_blank">Download CV</a></div></div></div>
+    </div>
+    <div class="social-row reveal">
+      <a href="https://www.linkedin.com/in/dr-raj-kumar-kaushik-a9611a68/" class="s-link" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/rajkumarpec" class="s-link" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://scholar.google.com/citations?user=smv1DREAAAAJ&hl=en" class="s-link" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+      <a href="https://x.com/Rajkuma43461138" class="s-link" target="_blank" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.facebook.com/rjk.kaushik86" class="s-link" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/rjk.kaushik86/" class="s-link" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© <span id="yr"></span> <span>Dr. Raj Kumar</span>. All rights reserved. &nbsp;·&nbsp; Data Analyst &amp; Applied AI/ML Professional</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Navbar scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+  // Mobile nav
+  const tog = document.getElementById('navToggler');
+  const nl = document.getElementById('navLinks');
+  tog.addEventListener('click', () => nl.classList.toggle('open'));
+  nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('open')));
+
+  // Typing — REAL verified roles only
+  const roles = ['Data Analyst', 'Power BI Developer', 'Assistant Professor', 'Research Associate', 'AI/ML Practitioner'];
+  let ri=0, ci=0, del=false;
+  const te = document.getElementById('typing-text');
+  function type(){
+    const cur = roles[ri];
+    te.textContent = del ? cur.substring(0,ci--) : cur.substring(0,ci++);
+    let d = del ? 55 : 105;
+    if(!del && ci===cur.length+1){d=1900;del=true;}
+    if(del && ci===0){del=false;ri=(ri+1)%roles.length;d=380;}
+    setTimeout(type,d);
+  }
+  setTimeout(type,900);
+
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById('tab-'+b.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Counter
+  function countUp(el,t){
+    let c=0, step=Math.max(1,Math.floor(t/55));
+    const id=setInterval(()=>{c=Math.min(c+step,t);el.textContent=c+(t>=10?'+':'');if(c>=t)clearInterval(id);},28);
+  }
+
+  // Reveal + skill bars + counters
+  let statsRun=false;
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.sk-fill').forEach(b=>b.style.width=b.dataset.width+'%');
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const statsIO=new IntersectionObserver(en=>{
+    if(en[0].isIntersecting&&!statsRun){statsRun=true;document.querySelectorAll('.stat-num[data-target]').forEach(el=>countUp(el,+el.dataset.target));}
+  },{threshold:.5});
+  const strip=document.querySelector('.stat-strip');
+  if(strip)statsIO.observe(strip);
+
+  // Active nav highlight
+  const secs=[...document.querySelectorAll('section[id]')];
+  window.addEventListener('scroll',()=>{
+    let cur='';
+    secs.forEach(s=>{if(scrollY>=s.offsetTop-130)cur=s.id;});
+    document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.style.color=a.getAttribute('href')==='#'+cur?'var(--gold)':'';
+    });
+  });
+</script>
+</body>
+</html>
